@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ed">
+    <title>小恐龍衝刺</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="小恐龍衝刺首頁">
+          <span class="brand-icon" aria-hidden="true">▰</span>
+          小恐龍衝刺
+        </a>
+        <span class="topbar-note">一場沒有終點的散步</span>
+      </header>
+
+      <section class="game-card" aria-labelledby="game-title">
+        <div class="game-heading">
+          <div>
+            <p class="eyebrow">READY, SET, RUN</p>
+            <h1 id="game-title">準備好就出發！</h1>
+            <p class="subtitle">跳過仙人掌、收集金幣；每枚金幣加 10 分。</p>
+          </div>
+          <div class="scoreboard" aria-label="遊戲分數">
+            <div class="score-item coin-score">
+              <span class="score-label">金幣收藏</span>
+              <span class="score-value" id="coin-count">00000</span>
+            </div>
+            <div class="score-item">
+              <span class="score-label">本次分數</span>
+              <span class="score-value" id="score">00000</span>
+            </div>
+            <div class="score-item best-score">
+              <span class="score-label">最高紀錄</span>
+              <span class="score-value" id="best-score">00000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="game" width="900" height="320" aria-label="小恐龍跑酷遊戲區域"></canvas>
+          <div class="game-overlay" id="overlay">
+            <div class="overlay-content">
+              <span class="overlay-emoji" id="overlay-emoji" aria-hidden="true">🦖</span>
+              <p class="overlay-title" id="overlay-title">準備開始了嗎？</p>
+              <p class="overlay-copy" id="overlay-copy">按空白鍵或點一下，讓小恐龍跳起來</p>
+              <button class="play-button" id="play-button" type="button">
+                <span aria-hidden="true">▶</span>
+                <span id="button-label">開始遊戲</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-footer">
+          <div class="hint">
+            <span class="keycap">SPACE</span>
+            <span class="keycap">↑</span>
+            <span>跳躍</span>
+            <span class="hint-divider">·</span>
+            <span class="keycap">R</span>
+            <span>重新開始</span>
+          </div>
+          <span class="mobile-hint">點擊畫面即可跳躍</span>
+          <span class="speed-label"><span class="status-dot"></span>準備出發</span>
+        </div>
+      </section>
+
+      <section class="leaderboard-card" aria-labelledby="leaderboard-title">
+        <div class="leaderboard-heading">
+          <div>
+            <p class="eyebrow">RUN HISTORY</p>
+            <h2 id="leaderboard-title">成績排行榜</h2>
+            <p class="leaderboard-description">每局結束後自動記錄，依分數由高至低排名。</p>
+          </div>
+          <label class="player-name-field" for="player-name">
+            <span>玩家名稱</span>
+            <input id="player-name" maxlength="24" value="小恐龍" autocomplete="nickname">
+          </label>
+        </div>
+        <p class="leaderboard-status" id="leaderboard-status" role="status">正在載入成績…</p>
+        <div class="leaderboard-table-wrap">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th scope="col">名次</th>
+                <th scope="col">玩家</th>
+                <th scope="col">分數</th>
+                <th scope="col">金幣</th>
+                <th scope="col">遊玩時間</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <tr><td class="leaderboard-empty" colspan="5">目前還沒有遊玩紀錄，開始遊戲來登上排行榜吧！</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>專注呼吸，然後勇敢地跳。</span>
+        <span>用 HTML5 Canvas 製作 · 無需下載</span>
+      </footer>
+    </main>
+    <script src="config.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
